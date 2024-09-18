@@ -1,8 +1,19 @@
 {
-  "name": "vite-vue-starter",
+  "name": "lighthouse",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/lighthouse.umd.cjs",
+  "module": "./dist/lighthouse.js",
+  "exports": {
+    ".": {
+      "import": "./dist/lighthouse.js",
+      "require": "./dist/lighthouse.umd.cjs"
+    }
+  },
   "private": true,
   "version": "0.0.0",
-  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -13,6 +24,9 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.1.3",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.12",
     "vite": "^5.4.6"
   }
 }
