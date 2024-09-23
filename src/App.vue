@@ -1,6 +1,6 @@
 <template>
   <Dashboard>
-    <Navbar :links="links">
+    <Navbar :links="links" :brand="brand">
       <!--
 
         <Link></Link>
@@ -70,6 +70,11 @@ const links = [
     to: 'test.com'
   }
 ]
+
+const brand = {
+  label: 'test brand',
+  img: 'path/to/img'
+}
 </script>
 
 

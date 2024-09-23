@@ -1,9 +1,12 @@
 <template>
-    <header class="bg-blue-200">
-        <div class="brand"></div>
-        <nav>
+    <header class="bg-blue-200 p-2 flex">
+        <div class="brand flex justify-center items-center">
+            <img :src="props.brand.img" :alt="props.brand.label" v-if="props.brand.imag">
+            <p v-else>{{ props.brand.label }}</p>
+        </div>
+        <nav class="grow">
             <ul class="flex gap-4">
-                <li v-for="(link, index) in links" :key="index" class="px-3 py-2">
+                <li v-for="(link, index) in props.links" :key="index" class="px-3 py-2">
                     <a :href="link.href">{{ link.label }}</a>
                 </li>
             </ul>
@@ -13,6 +16,7 @@
 
 <script setup>
 const props = defineProps({
-    links: Array
+    links: Array,
+    brand: Object,
 })
 </script>
