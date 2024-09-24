@@ -2,10 +2,10 @@
     <header class="bg-blue-200 p-2 ">
         <div class="container mx-auto flex gap-16">
 
-            <div class="brand flex justify-center items-center">
+            <a :href="props.brand.href" class="brand flex justify-center items-center">
                 <img :src="props.brand.img" :alt="props.brand.alt" v-if="props.brand.img">
                 <p v-else>{{ props.brand.label }}</p>
-            </div>
+            </a>
             <nav class="grow">
                 <ul class="flex gap-4" :class="alignmentClass">
                     <li v-for="(link, index) in props.links" :key="index" class="px-3 py-2">
