@@ -73,7 +73,8 @@ const links = [
 
 const brand = {
   label: 'test brand',
-  img: 'path/to/img'
+  img: 'path/to/img',
+  alt: 'alt text'
 }
 </script>
 

@@ -1,7 +1,7 @@
 <template>
     <header class="bg-blue-200 p-2 flex">
         <div class="brand flex justify-center items-center">
-            <img :src="props.brand.img" :alt="props.brand.label" v-if="props.brand.imag">
+            <img :src="props.brand.img" :alt="props.brand.alt" v-if="props.brand.img">
             <p v-else>{{ props.brand.label }}</p>
         </div>
         <nav class="grow">
