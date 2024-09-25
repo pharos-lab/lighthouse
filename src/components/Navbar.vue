@@ -1,21 +1,19 @@
 <template>
     <header class="bg-blue-200 p-2 ">
         <div class="container mx-auto flex gap-16">
-            <a :href="brand.href" class="brand flex justify-center items-center" v-if="brand">
-                <img :src="brand.img" :alt="brand.alt || 'add alternative text'" v-if="brand.img">
-                <p v-else>{{ brand.label || 'add brand' }}</p>
-            </a>
+            <Link v-bind="brand" />
             <nav class="grow">
-                <ul class="flex gap-4" :class="alignmentClass">
-                    <li v-for="(link, index) in links" :key="index" class="px-3 py-2">
-                        <a :href="link.href">{{ link.label }}</a>
-                    </li>
+                <ul class="flex gap-4 h-full" :class="alignmentClass">
+                    <Link v-bind="link" v-for="(link, index) in links" :key="index"/>
                 </ul>
             </nav>
             <section>
-                <ul class="flex gap-4">
-                    <li v-for="(link, index) in actions" :key="index" class="px-3 py-2">
-                        <a :href="link.href">{{ link.label }}</a>
+                <ul class="flex gap-2">
+                    <li v-for="(link, index) in actions" :key="index">
+                        <Link v-if="!link.dropdown" v-bind="link"/>
+                        <Dropdown v-else :label="link.label">
+                            <DropdownItem v-for="(item, index) in link.dropdown" v-bind="item" :key="index"></DropdownItem>
+                        </Dropdown>
                     </li>
                 </ul>
             </section>
@@ -25,6 +23,7 @@
 
 <script setup>
 import { computed } from 'vue';
+import Link from './Link.vue'
 
 const props = defineProps({
     links: Array,
