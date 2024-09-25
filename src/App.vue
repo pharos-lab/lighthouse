@@ -1,6 +1,6 @@
 <template>
   <Dashboard>
-    <Navbar :links="links" :brand="brand">
+    <Navbar :links="links">
       <!--
 
         <Link></Link>
@@ -68,15 +68,15 @@ const links = [
     label: 'test3',
     href: 'test.com',
     to: 'test.com'
+  },
+  {
+    label: 'test brand',
+    img: 'path/to/img',
+    //alt: 'alt text',
+    //href: "test.com",
+    type: 'brand'
   }
 ]
-
-const brand = {
-  label: 'test brand',
-  img: 'path/to/img',
-  alt: 'alt text',
-  href: "test.com"
-}
 </script>
 
 
