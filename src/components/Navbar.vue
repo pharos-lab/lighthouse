@@ -1,7 +1,6 @@
 <template>
     <header class="bg-blue-200 p-2 ">
         <div class="container mx-auto flex gap-16">
-
             <a :href="brand.href" class="brand flex justify-center items-center" v-if="brand">
                 <img :src="brand.img" :alt="brand.alt || 'add alternative text'" v-if="brand.img">
                 <p v-else>{{ brand.label || 'add brand' }}</p>
@@ -13,6 +12,13 @@
                     </li>
                 </ul>
             </nav>
+            <section>
+                <ul class="flex gap-4">
+                    <li v-for="(link, index) in actions" :key="index" class="px-3 py-2">
+                        <a :href="link.href">{{ link.label }}</a>
+                    </li>
+                </ul>
+            </section>
         </div>
     </header>
 </template>
@@ -37,13 +43,19 @@ const alignmentClass = computed(() => {
 
 const brand = computed(() => {
     return props.links.filter(link => {       
-        return link.hasOwnProperty('type') && link?.type == 'brand'
+        return link?.type == 'brand'
     })[0]
 })
 
 const links = computed(() => {
     return props.links.filter(link => {       
-        return link?.type !== 'brand'
+        return link?.type !== 'brand' && link?.type !== 'action'
+    })
+})
+
+const actions = computed(() => {
+    return props.links.filter(link => {       
+        return link?.type == 'action'
     })
 })
 

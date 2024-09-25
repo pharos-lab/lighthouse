@@ -67,7 +67,8 @@ const links = [
   {
     label: 'test3',
     href: 'test.com',
-    to: 'test.com'
+    to: 'test.com',
+    type: 'action'
   },
   {
     label: 'test brand',
