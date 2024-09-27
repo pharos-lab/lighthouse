@@ -4,16 +4,14 @@
             <Link v-bind="brand" />
             <nav class="grow">
                 <ul class="flex gap-4 h-full" :class="alignmentClass">
-                    <Link v-bind="link" v-for="(link, index) in links" :key="index"/>
+                    <Link v-bind="link" v-for="(link, index) in links" :key="index" :alignment="center" />
                 </ul>
             </nav>
             <section>
                 <ul class="flex gap-2">
                     <li v-for="(link, index) in actions" :key="index">
                         <Link v-if="!link.dropdown" v-bind="link"/>
-                        <Dropdown v-else :label="link.label">
-                            <DropdownItem v-for="(item, index) in link.dropdown" v-bind="item" :key="index"></DropdownItem>
-                        </Dropdown>
+                        <Dropdown v-else v-bind="link" />
                     </li>
                 </ul>
             </section>
@@ -24,6 +22,7 @@
 <script setup>
 import { computed } from 'vue';
 import Link from './Link.vue'
+import Dropdown from './Dropdown.vue'
 
 const props = defineProps({
     links: Array,

@@ -1,5 +1,5 @@
 <template>
-    <a :href="props.href" class="link flex justify-center items-center px-3 py-2">
+    <a :href="props.href" class="link flex items-center px-3 py-2" :class="alignment">
         <img v-if="props.img" 
             :src="props.img" 
             :alt="props.alt || 'add alternative text'"  
@@ -15,13 +15,28 @@
 </template>
 
 <script setup>
+import { computed } from 'vue';
+
 const props = defineProps({
     type: String,
     label: String,
     img: String,
     alt: String,
-    href: String
+    href: String,
+    alignment: {
+        type: String,
+        default: 'left'
+    }
 })
 
+const alignmentClass = computed(() => {
+    return alignments[props.alignment] 
+})
+
+const alignments = {
+    left: 'justify-start',
+    center: 'justify-center',
+    right: 'justify-end'
+}
 
 </script>

@@ -66,18 +66,24 @@ const links = [
   },
   {
     label: 'test3',
-    href: 'test.com',
+    href: 'test3.com',
     to: 'test.com',
     img: 'path/img',
     type: 'action',
   },
   {
-    label: 'test3',
-    href: 'test.com',
-    to: 'test.com',
+    label: 'test4',
     img: 'path/img',
     type: 'action',
     dropdown: [
+      {
+        label: 'profile',
+        href: 'profile'
+      },
+      {
+        label: 'profile',
+        href: 'profile'
+      },
       {
         label: 'profile',
         href: 'profile'
