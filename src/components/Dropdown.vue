@@ -1,5 +1,5 @@
 <template>
-    <div class="relative">
+    <div class="relative cursor-pointer">
         <div class="px-3 py-2" v-if="props.img" @click="showItems = !showItems">
             <img :src="props.img" 
                 :alt="props.alt || 'add alternative text'"  

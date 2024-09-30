@@ -1,17 +1,6 @@
 <template>
   <Dashboard>
-    <Navbar :links="links">
-      <!--
-
-        <Link></Link>
-        <Link></Link>
-        <Link></Link>
-        <Actions>
-          <Action></Action>
-          <Action></Action>
-        </Actions>
-      -->
-    </Navbar>
+    <Navbar :links="links" />
     
     <Sidebar>
       <!--
