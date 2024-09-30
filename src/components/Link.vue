@@ -1,5 +1,7 @@
 <template>
-    <a :href="props.href" class="link flex items-center px-3 py-2" :class="alignment">
+    <RouterLink :to="props.to" v-if="props.to" />
+    
+    <a :href="props.href" class="link flex items-center px-3 py-2" :class="alignment" v-else>
         <img v-if="props.img" 
             :src="props.img" 
             :alt="props.alt || 'add alternative text'"  
@@ -23,6 +25,7 @@ const props = defineProps({
     img: String,
     alt: String,
     href: String,
+    to: String,
     alignment: {
         type: String,
         default: 'left'

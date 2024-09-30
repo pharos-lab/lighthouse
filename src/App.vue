@@ -46,17 +46,14 @@ const links = [
   {
     label: 'test',
     href: 'test.com',
-    to: 'test.com'
   },
   {
     label: 'test2',
     href: 'test.com',
-    to: 'test.com'
   },
   {
     label: 'test3',
     href: 'test3.com',
-    to: 'test.com',
     img: 'path/img',
     type: 'action',
   },
