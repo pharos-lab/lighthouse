@@ -56,6 +56,7 @@ const links = [
     href: 'test3.com',
     img: 'path/img',
     type: 'action',
+    icon: 'ChatBubbleLeft'
   },
   {
     label: 'test4',

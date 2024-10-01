@@ -1,7 +1,8 @@
 <template>
     <RouterLink :to="props.to" v-if="props.to" />
     
-    <a :href="props.href" class="link flex items-center px-3 py-2" :class="alignment" v-else>
+    <a :href="props.href" class="link flex items-center px-3 py-2 gap-4" :class="alignmentClass" v-else>
+        <icon :name="props.icon" v-if="props.icon"/>
         <img v-if="props.img" 
             :src="props.img" 
             :alt="props.alt || 'add alternative text'"  
@@ -18,6 +19,7 @@
 
 <script setup>
 import { computed } from 'vue';
+import Icon from './Icon.vue'
 
 const props = defineProps({
     type: String,
@@ -26,9 +28,13 @@ const props = defineProps({
     alt: String,
     href: String,
     to: String,
+    icon: String,
     alignment: {
         type: String,
-        default: 'left'
+        default: 'left',
+        validator(value) {
+            return ['left', 'right', 'center'].includes(value)
+        }
     }
 })
 
