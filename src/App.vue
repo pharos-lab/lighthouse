@@ -54,13 +54,11 @@ const links = [
   {
     label: 'test3',
     href: 'test3.com',
-    img: 'path/img',
     type: 'action',
     icon: 'ChatBubbleLeft'
   },
   {
     label: 'test4',
-    img: 'path/img',
     type: 'action',
     dropdown: [
       {

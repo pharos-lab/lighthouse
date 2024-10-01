@@ -8,7 +8,7 @@
                 ]"
             >
         </div>
-        <button v-else>
+        <button v-else class="px-3 py-2">
             {{ props.label }}
         </button>
         

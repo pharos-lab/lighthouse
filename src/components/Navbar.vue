@@ -8,7 +8,7 @@
                 </ul>
             </nav>
             <section>
-                <ul class="flex gap-2">
+                <ul class="flex gap-2 items-center">
                     <li v-for="(link, index) in actions" :key="index">
                         <Link v-if="!link.dropdown" v-bind="link"/>
                         <Dropdown v-else v-bind="link" :color="props.color"/>
