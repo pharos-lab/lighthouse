@@ -1,6 +1,6 @@
 <template>
   <Dashboard>
-    <Navbar :links="links" />
+    <Navbar :links="links" color="red"/>
     
     <Sidebar>
       <!--

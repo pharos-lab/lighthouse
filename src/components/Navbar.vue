@@ -1,5 +1,5 @@
 <template>
-    <header class="bg-blue-200 p-2 ">
+    <header class="p-2" :class="colorClass">
         <div class="container mx-auto flex gap-16">
             <Link v-bind="brand" />
             <nav class="grow">
@@ -11,7 +11,7 @@
                 <ul class="flex gap-2">
                     <li v-for="(link, index) in actions" :key="index">
                         <Link v-if="!link.dropdown" v-bind="link"/>
-                        <Dropdown v-else v-bind="link" />
+                        <Dropdown v-else v-bind="link" :color="props.color"/>
                     </li>
                 </ul>
             </section>
@@ -23,9 +23,27 @@
 import { computed } from 'vue';
 import Link from './Link.vue'
 import Dropdown from './Dropdown.vue'
+import { backgroundColor } from './backgroundColor.js';
+
 
 const props = defineProps({
     links: Array,
+    color: {
+        type: String,
+        default: 'blue',
+        validator(value) {
+        // The value must match one of these strings
+        return ['gray', 'red', 'orange', 'yellow', 'green', 'blue'].includes(value);
+        },
+    },
+    mode: {
+        type: String,
+        default: 'fill',
+        validator(value) {
+        // The value must match one of these strings
+        return ['none', 'fill', 'light', 'outlined', 'text'].includes(value);
+        },
+    },
     alignment: {
         type: String,
         default: 'center',
@@ -34,6 +52,10 @@ const props = defineProps({
         }
     }
 })
+
+const colorClass = computed(() => {
+  return backgroundColor[props.color][props.mode];
+});
 
 const alignmentClass = computed(() => {
     return alignments[props.alignment] 
