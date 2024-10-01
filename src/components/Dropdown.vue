@@ -8,11 +8,11 @@
                 ]"
             >
         </div>
-        <button v-else class="px-3 py-2">
+        <button v-else class="px-3 py-2" @click="showItems = !showItems">
             {{ props.label }}
         </button>
         
-        <div v-show="showItems" class="absolute right-0 rounded p-2 top-16" :class="colorClass">
+        <div v-show="showItems" class="absolute right-0 rounded p-2 top-14" :class="colorClass">
             <Link v-for="(link, index) in props.dropdown" v-bind="link" :key="index"/>
         </div>
     </div>
